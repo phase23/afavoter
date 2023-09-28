@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_buttons"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Dovote">
+
+    <!-- Static TextView for "P2P Bridge". If you prefer to add this dynamically in Java, this can be removed. -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="36dp"
+        android:text="P2P Bridge"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <!-- Dynamic buttons will be added below the TextView in the Java code. -->
+
+</LinearLayout>

@@ -32,19 +32,23 @@ PDFView pdfView;
         switch(thisclick){
             case "one":
 
-                linkpdf = "AGENDA _OCTOBER_29TH_2022_AGM.pdf";
+                linkpdf = "AGENDA_OCTOBER_21ST_2023_AGM.pdf";
             break;
             case "two":
-                linkpdf = "2021_ANNUAL_GENERAL_MEETING_MINUTES.pdf";
+                linkpdf = "2022_ANNUAL_GENERAL_MEETING_MINUTES.pdf";
                 break;
             case "three":
-                linkpdf = "Audited_Financial_Statements_2021.pdf";
+                linkpdf = "Anguilla_Football_Association_Ltd_Financial_Statements_for_the_year_ended_December_31_2022.pdf";
                 break;
             case "four":
-                linkpdf = "Anguilla_Football_Association_2021_Activity _Report.pdf";
+                linkpdf = "Anguilla_Football_Association_2022_Activity_Report.pdf";
                 break;
             case "five":
                 linkpdf = "Budget_Summary_2023.pdf";
+                break;
+
+            case "six":
+                linkpdf = "INVITATION_TO_AGM_OCTOBER_21st_2023.pdf";
                 break;
         }
 

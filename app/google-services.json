@@ -1,66 +1,26 @@
 {
   "project_info": {
-    "project_number": "1051293600048",
-    "firebase_url": "https://axcessdrivers-default-rtdb.firebaseio.com",
-    "project_id": "axcessdrivers",
-    "storage_bucket": "axcessdrivers.appspot.com"
+    "project_number": "942741661940",
+    "project_id": "voter-e8e2f",
+    "storage_bucket": "voter-e8e2f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1051293600048:android:42e93af71c155c06a260f5",
+        "mobilesdk_app_id": "1:942741661940:android:b695be52e2a07b3fa6d6a1",
         "android_client_info": {
-          "package_name": "ai.axcess.axcessfoods"
+          "package_name": "com.plus.agmafa"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1051293600048-qli9hap0e5ibb5l72qssjgvuoa3j5ios.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDOdTY7v4cIv80GP2bRNCEtIjhtGcXFK-8"
+          "current_key": "AIzaSyAku4VBupY0RcK4B73JqRlCL9pKANuyTak"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1051293600048-qli9hap0e5ibb5l72qssjgvuoa3j5ios.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1051293600048:android:2f043fc091f4bb1da260f5",
-        "android_client_info": {
-          "package_name": "ai.axcess.drivers"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1051293600048-qli9hap0e5ibb5l72qssjgvuoa3j5ios.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDOdTY7v4cIv80GP2bRNCEtIjhtGcXFK-8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1051293600048-qli9hap0e5ibb5l72qssjgvuoa3j5ios.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

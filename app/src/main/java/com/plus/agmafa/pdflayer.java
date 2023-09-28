@@ -3,6 +3,7 @@ package com.plus.agmafa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +13,14 @@ import android.widget.Toast;
 
 public class pdflayer extends AppCompatActivity {
     String thisclub;
+    String getclub;
     TextView select;
     Button btn1;
     Button btn2;
     Button btn3;
     Button btn4;
     Button btn5;
+    Button btninv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +28,20 @@ public class pdflayer extends AppCompatActivity {
         setContentView(R.layout.activity_pdflayer);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        thisclub = getIntent().getExtras().getString("club");
+       // thisclub = getIntent().getExtras().getString("club");
+        SharedPreferences shared = getSharedPreferences("autoLogin", MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = shared.edit();
+        getclub = shared.getString("thisclub", "");
 
         select = (TextView) findViewById(R.id.select);
-        select.setText(thisclub);
+        select.setText(getclub);
 
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
         btn3 = (Button)findViewById(R.id.btn3);
         btn4 = (Button)findViewById(R.id.btn4);
         btn5 = (Button)findViewById(R.id.btn5);
-
+        btninv = (Button)findViewById(R.id.btninv);
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +116,23 @@ public class pdflayer extends AppCompatActivity {
 
 
                 intent.putExtra("click","five");
+                intent.putExtra("club",thisclub);
+                startActivity(intent);
+
+
+            }
+        });
+
+        btninv.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+                Intent intent = new Intent(pdflayer.this, Viewpdf.class);
+
+                //Toast.makeText(pdflayer.this, "clicked five" , Toast.LENGTH_SHORT).show();
+
+
+                intent.putExtra("click","six");
                 intent.putExtra("club",thisclub);
                 startActivity(intent);
 

@@ -5,9 +5,14 @@
       <map>
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1296875" />
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1296875" />
+        <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_dovote.xml" value="0.10572916666666667" />
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_nointernet.xml" value="0.18" />
+        <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_novote.xml" value="0.22" />
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_pdflayer.xml" value="0.1828125" />
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_viewpdf.xml" value="0.21" />
+        <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_votedone.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/activity_votestart.xml" value="0.10572916666666667" />
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/layout/mytextview.xml" value="0.1" />
         <entry key="..\:/Users/User/Documents/AgmAfa/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1296875" />
       </map>
