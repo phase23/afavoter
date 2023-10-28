@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class pdflayer extends AppCompatActivity {
     String thisclub;
@@ -20,6 +19,9 @@ public class pdflayer extends AppCompatActivity {
     Button btn3;
     Button btn4;
     Button btn5;
+    Button btn6;
+    Button presdoc;
+
     Button btninv;
 
     @Override
@@ -41,8 +43,8 @@ public class pdflayer extends AppCompatActivity {
         btn3 = (Button)findViewById(R.id.btn3);
         btn4 = (Button)findViewById(R.id.btn4);
         btn5 = (Button)findViewById(R.id.btn5);
-        btninv = (Button)findViewById(R.id.btninv);
-
+        btn6 = (Button)findViewById(R.id.btn6 );
+        presdoc = (Button)findViewById(R.id.presdoc );
 
         btn1.setOnClickListener(new View.OnClickListener() {
 
@@ -123,7 +125,7 @@ public class pdflayer extends AppCompatActivity {
             }
         });
 
-        btninv.setOnClickListener(new View.OnClickListener() {
+        btn6.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
 
@@ -139,6 +141,27 @@ public class pdflayer extends AppCompatActivity {
 
             }
         });
+
+        presdoc.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+                Intent intent = new Intent(pdflayer.this, Viewpdf.class);
+
+                //Toast.makeText(pdflayer.this, "clicked five" , Toast.LENGTH_SHORT).show();
+
+
+                intent.putExtra("click","seven");
+                intent.putExtra("club",thisclub);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+
 
 
 

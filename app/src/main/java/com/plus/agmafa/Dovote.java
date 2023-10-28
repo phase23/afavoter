@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -42,7 +43,8 @@ public class Dovote extends AppCompatActivity {
     String voteresp;
     Handler handler3;
     String thismydevice;
-
+    String voteunq;
+    String getclub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,9 @@ public class Dovote extends AppCompatActivity {
         setContentView(R.layout.activity_dovote);
         ttlr = (TextView)findViewById(R.id.tv_title);
 
+        SharedPreferences shared = getSharedPreferences("autoLogin", MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = shared.edit();
+        getclub = shared.getString("thisclub", "");
 
          thismydevice = Settings.Secure.getString(this.getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -72,7 +77,7 @@ public class Dovote extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(data);
              votetitile = jsonObject.getString("111");
              istimer = jsonObject.getString("112");
-
+             voteunq = jsonObject.getString("113");
 
             int myNum = 0;
             try {
@@ -83,7 +88,9 @@ public class Dovote extends AppCompatActivity {
             int gettimer = myNum * 1000;
             Log.i("side", String.valueOf(gettimer));
 
-            new CountDownTimer(gettimer, 1000) {
+
+            CountDownTimer countDownTimer = new CountDownTimer(gettimer, 1000) {
+
                 @Override
                 public void onTick(long millisUntilFinished) {
                     ttlr.setText(votetitile +" - you have  " + millisUntilFinished / 1000 + " seconds to complete your vote");
@@ -97,6 +104,30 @@ public class Dovote extends AppCompatActivity {
                 }
             }.start();
 
+
+            CountDownTimer internaltimer = new CountDownTimer(gettimer, 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    //ttlr.setText(votetitile +" - you have  " + millisUntilFinished / 1000 + " seconds to complete your vote");
+                }
+
+                @Override
+                public void onFinish() {
+                    // Handle what happens after countdown is finished, e.g., navigate to another activity
+
+                    try {
+                        updateviwer("https://axfull.com/vote/api_updatevote.php?voteid="+voteunq );
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
+                }
+            }.start();
+
             //ttlr.setText(title + " -  You have " + sec + " seconds to complete your vote") ;
             // Set the title to a TextView
             TextView titleTextView = new TextView(this);
@@ -106,6 +137,7 @@ public class Dovote extends AppCompatActivity {
             // Remove the title so that we're left with only the button data
             jsonObject.remove("111");
             jsonObject.remove("112");
+            jsonObject.remove("113");
             // Iterate through the JSON object and create buttons dynamically
             for (Iterator<String> it = jsonObject.keys(); it.hasNext(); ) {
                 String key = it.next();
@@ -156,12 +188,13 @@ public class Dovote extends AppCompatActivity {
                                         // Print the tag and text
                                         System.out.println("ppr Tag: " + buttonTag);
                                         System.out.println("ppr Text: " + buttonText);
-                                        handler3.removeCallbacksAndMessages(null);
+                                        countDownTimer.cancel();
+
 
 
 
                                         try {
-                                            sendvote("https://axfull.com/vote/api_sendvote.php?voteid="+buttonTag + "&deviceid="+thismydevice);
+                                            sendvote("https://axfull.com/vote/api_sendvote.php?voteid="+buttonTag + "&deviceid="+thismydevice + "&club="+ getclub);
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }
@@ -230,6 +263,48 @@ public class Dovote extends AppCompatActivity {
 
 
     }
+
+
+
+    void updateviwer(String url) throws IOException {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Log.i("ddevice",url);
+        OkHttpClient client = new OkHttpClient();
+        client.newCall(request)
+                .enqueue(new Callback() {
+                    @Override
+                    public void onFailure(final Call call, IOException e) {
+                        // Error
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // For the example, you can show an error dialog or a toast
+                                // on the main UI thread
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onResponse(Call call, final Response response) throws IOException {
+
+
+                        String gsetr = response.body().string();
+                        Log.i("ddevice",gsetr);
+
+
+
+                    }//end if
+
+
+
+
+                });
+
+    }
+
 
 
 

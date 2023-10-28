@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
 
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
         if (SDK_INT > 8)
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-
+/*
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
@@ -79,6 +82,27 @@ public class MainActivity extends AppCompatActivity {
         } else {
             connected = false;
         }
+
+ */
+
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (connectivityManager != null) {
+            NetworkInfo mobileNetworkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+            NetworkInfo wifiNetworkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+            if (mobileNetworkInfo != null && mobileNetworkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                // Connected to mobile network
+                connected = true;
+            } else if (wifiNetworkInfo != null && wifiNetworkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                // Connected to Wi-Fi network
+                connected = true;
+            }
+        }
+
+// Use the 'connected' boolean as needed
+
 
 
         devicip = (TextView)findViewById(R.id.device);
@@ -97,11 +121,6 @@ public class MainActivity extends AppCompatActivity {
         }else {
 
 
-            try {
-                collectdevice("https://axfull.com/vote/api_devices.php?deviceid=" + thismydevice);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
 
             Log.i("ddevice", thismydevice);
@@ -112,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             // FirebaseDatabase database = FirebaseDatabase.getInstance("https://axcessdrivers-default-rtdb.firebaseio.com/");
             FirebaseDatabase database = FirebaseDatabase.getInstance("https://voter-e8e2f-default-rtdb.firebaseio.com/");
 
-            DatabaseReference newdriver = database.getReference(thismydevice); // yourwebisteurl/rootNode if it exist otherwise don't pass any string to it.
+            DatabaseReference newdriver = database.getReference("4050"); // yourwebisteurl/rootNode if it exist otherwise don't pass any string to it.
             newdriver.child("thisstatus").setValue("onhold");
 
 
@@ -170,7 +189,10 @@ public class MainActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(MainActivity.this, Votestart.class);
                         startActivity(intent);
+                    }else if(alert.equals("reset")) {
 
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
 
                     } else {
 
@@ -220,6 +242,13 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                     //Toast.makeText(MainActivity.this, "clicked" + position + " " + arrayList.get(position).toString(), Toast.LENGTH_SHORT).show();
+
+                    try {
+                        collectdevice("https://axfull.com/vote/api_devices.php?deviceid=" + thismydevice);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
 
                     Intent intent = new Intent(MainActivity.this, pdflayer.class);
                     //intent.putExtra("userid",releaseid);

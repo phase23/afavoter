@@ -38,7 +38,7 @@
             android:bottomLeftRadius="10dp"
             android:bottomRightRadius="10dp"
             android:padding="14dp"
-            android:text="2023 AGENDA OCTOBER 29TH "
+            android:text="2023 AGENDA OCTOBER 21st "
             android:textColor="#ffffff"
             android:textSize="25dp"
 
@@ -53,30 +53,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.298" />
 
-
-        <Button
-            android:id="@+id/btninv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:width="630dp"
-            android:bottomLeftRadius="10dp"
-            android:bottomRightRadius="10dp"
-            android:padding="14dp"
-            android:text="Invitation Letter"
-            android:textColor="#ffffff"
-            android:textSize="25dp"
-
-            android:topLeftRadius="10dp"
-            android:topRightRadius="10dp"
-            app:backgroundTint="#000000"
-            app:cornerRadius="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.298" />
 
         <Button
             android:id="@+id/btn2"
@@ -100,7 +76,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.514" />
+            app:layout_constraintVertical_bias="0.298" />
 
 
         <Button
@@ -125,8 +101,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.763" />
-
+            app:layout_constraintVertical_bias="0.514" />
 
         <Button
             android:id="@+id/btn4"
@@ -153,29 +128,79 @@
             app:layout_constraintVertical_bias="0.763" />
 
 
-    <Button
-        android:id="@+id/btn5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/presdoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:width="630dp"
-        android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp"
-        android:padding="14dp"
-        android:text="2023 Budget Summary"
-        android:textColor="#ffffff"
-        android:textSize="25dp"
+            android:width="630dp"
+            android:bottomLeftRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:padding="14dp"
+            android:text="Activity Report Presentation"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
 
-        android:topLeftRadius="10dp"
-        android:topRightRadius="10dp"
-        app:backgroundTint="#000000"
-        app:cornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            app:backgroundTint="#982727"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.763" />
+
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:width="630dp"
+            android:bottomLeftRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:padding="14dp"
+            android:text="2024 BUDGET SUMMARY"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            app:backgroundTint="#000000"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.763" />
+
+
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:width="630dp"
+            android:bottomLeftRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:padding="14dp"
+            android:text="ELECTIONS NOMINEES"
+            android:textColor="#ffffff"
+            android:textSize="25dp"
+
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp"
+            app:backgroundTint="#000000"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.979" />
 
 
     </LinearLayout>

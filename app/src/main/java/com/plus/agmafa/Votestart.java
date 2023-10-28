@@ -35,18 +35,22 @@ public class Votestart extends AppCompatActivity {
         setContentView(R.layout.activity_votestart);
 
 
-        try {
-            doGetRequest("https://axfull.com/vote/api_getoptions.php");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         txtCountdown = findViewById(R.id.txtCountdown);
 
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(7000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 txtCountdown.setText("Voting will begin in " + millisUntilFinished / 1000);
+                long tick = millisUntilFinished / 1000;
+                if (tick == 5) {
+                    try {
+                        doGetRequest("https://axfull.com/vote/api_getoptions.php");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
             @Override
@@ -69,13 +73,13 @@ public class Votestart extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-
+        Log.i("ddevice",url);
         OkHttpClient client = new OkHttpClient();
         client.newCall(request)
                 .enqueue(new Callback() {
                     @Override
                     public void onFailure(final Call call, IOException e) {
-                        // Error
+                        Log.i("ddevice","errot"); // Error
 
                         runOnUiThread(new Runnable() {
                             @Override
